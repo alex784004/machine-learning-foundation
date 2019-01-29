@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jan 29 15:11:36 2019
+
+@author: Chandra Prakash
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -16,4 +23,20 @@ class cal():
         return np.dot(Input,self.w[1:])+self.w[0]
     def predict(self,input1):
         return np.where(self.net_input(Input)>=0,1,-1)
+df=pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data',header=None)
+print('Head part oof data sets...')
+print(df.head())
+print('Tail part of data sets')
+print(df.tail())
+print('data set discription...')
+print(df.describe())
+print('Number of records=',df.shape[0])
+print('Number of attrib=',df.shape[1]-1)
+a=np.unique(df.iloc[:,4].values)
+print('classes=',a)
+print('Number of classses=',len(a))
+print('Number of records/class')
+print(df[4].value_counts())
 
+plt.scatter(df[1],df[2])
+plt.show()
